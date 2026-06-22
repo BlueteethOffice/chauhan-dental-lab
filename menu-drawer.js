@@ -97,16 +97,32 @@ document.addEventListener('DOMContentLoaded', function() {
   drawer.innerHTML = headerHtml + linksHtml + contactHtml + ctasHtml + footerHtml;
   document.body.appendChild(drawer);
 
-  // Toggle Functionality
+  // Toggle Functionality with Advanced Mobile Scroll Lock
+  let scrollPosition = 0;
+
   function openDrawer() {
+    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     drawer.classList.add('active');
     backdrop.classList.add('active');
+    
+    // Set position fixed to lock body scroll on all mobile browsers (iOS/Android)
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
     document.body.classList.add('drawer-open');
   }
 
   function closeDrawer() {
     drawer.classList.remove('active');
     backdrop.classList.remove('active');
+    
+    // Restore original scroll position and layout
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollPosition);
     document.body.classList.remove('drawer-open');
   }
 
