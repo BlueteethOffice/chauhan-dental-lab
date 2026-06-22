@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'gallery': 'fas fa-image',
     'why us': 'fas fa-star',
     'why choose us': 'fas fa-star',
-    'contact us': 'fas fa-phone-alt'
+    'contact us': 'fas fa-phone'
   };
 
   // Create Backdrop
