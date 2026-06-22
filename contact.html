@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -135,36 +135,36 @@
           <p class="form-sub">Have a question or need assistance? Fill out the form and our team will get back to you
             shortly.</p>
 
-          <form>
+          <form id="contactForm">
             <div class="fg-row">
               <div class="fg">
                 <label>Your Name</label>
-                <input type="text" placeholder="e.g. Dr. Amit Sharma">
+                <input type="text" id="contactName" placeholder="e.g. Dr. Amit Sharma" required>
               </div>
               <div class="fg">
                 <label>Phone Number</label>
-                <input type="tel" placeholder="+91 XXXXX XXXXX">
+                <input type="tel" id="contactPhone" placeholder="+91 XXXXX XXXXX" required>
               </div>
             </div>
             <div class="fg">
               <label>Email Address</label>
-              <input type="email" placeholder="doctor@clinic.com">
+              <input type="email" id="contactEmail" placeholder="doctor@clinic.com" required>
             </div>
             <div class="fg">
               <label>Subject</label>
-              <select>
+              <select id="contactSubject" required>
                 <option value="" disabled selected>Select a subject</option>
-                <option>Case Inquiry</option>
-                <option>Product Information</option>
-                <option>Pricing</option>
-                <option>Other</option>
+                <option value="Case Inquiry">Case Inquiry</option>
+                <option value="Product Information">Product Information</option>
+                <option value="Pricing">Pricing</option>
+                <option value="Other">Other</option>
               </select>
             </div>
             <div class="fg">
               <label>Your Message</label>
-              <textarea placeholder="Tell us about your requirement..."></textarea>
+              <textarea id="contactMessage" placeholder="Tell us about your requirement..." required></textarea>
             </div>
-            <button class="btn-send" type="button"><i class="fas fa-paper-plane"></i> Send Message</button>
+            <button class="btn-send" id="btnSend" type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
           </form>
 
           <div class="quick-contact">
@@ -309,6 +309,214 @@
         }
       });
     }
+  </script>
+
+  <!-- Form Submission & API Integration -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const contactForm = document.getElementById('contactForm');
+      if (!contactForm) return;
+
+      const btnSend = document.getElementById('btnSend');
+      const nameInput = document.getElementById('contactName');
+      const phoneInput = document.getElementById('contactPhone');
+      const emailInput = document.getElementById('contactEmail');
+      const subjectSelect = document.getElementById('contactSubject');
+      const messageInput = document.getElementById('contactMessage');
+
+      // Helper function to resolve local vs. production API routes
+      const getApiUrl = (endpoint) => {
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          // If we are developing locally on port 4000/3000, send to backend port 5000
+          if (window.location.port !== '5000') {
+            return `http://localhost:5000${endpoint}`;
+          }
+        }
+        return endpoint;
+      };
+
+      // Create overlay CSS inside the page dynamically if not present
+      if (!document.getElementById('form-success-styles')) {
+        const style = document.createElement('style');
+        style.id = 'form-success-styles';
+        style.textContent = `
+          .success-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          }
+          .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #fff;
+            font-size: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
+            transform: scale(0);
+            animation: popIn 0.5s 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+          }
+          .success-state h3 {
+            font-size: 24px;
+            color: #0d2d6b;
+            margin-bottom: 12px;
+            font-weight: 700;
+          }
+          .success-state p {
+            font-size: 16px;
+            color: #4b5563;
+            max-width: 320px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+          }
+          .btn-success-reset {
+            background: linear-gradient(135deg, #0d2d6b, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(13, 45, 107, 0.2);
+          }
+          .btn-success-reset:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(13, 45, 107, 0.3);
+          }
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes popIn {
+            to { transform: scale(1); }
+          }
+          .form-error-msg {
+            color: #dc2626;
+            background: #fee2e2;
+            border: 1px solid #fecaca;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            animation: fadeIn 0.3s ease;
+          }
+        `;
+        document.head.appendChild(style);
+      }
+
+      // Add error message container before form
+      const errorContainer = document.createElement('div');
+      errorContainer.className = 'form-error-msg';
+      errorContainer.id = 'formErrorMsg';
+      contactForm.parentNode.insertBefore(errorContainer, contactForm);
+
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Clear previous errors
+        errorContainer.style.display = 'none';
+        errorContainer.textContent = '';
+
+        // Front-end Validation
+        const name = nameInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const email = emailInput.value.trim();
+        const subject = subjectSelect.value;
+        const message = messageInput.value.trim();
+
+        if (!name || !phone || !email || !subject || !message) {
+          showError("Please fill out all fields.");
+          return;
+        }
+
+        // Phone validation (simple pattern check for digits/spaces/plus, minimum 8 digits)
+        const cleanPhone = phone.replace(/[^0-9+]/g, '');
+        if (cleanPhone.length < 8) {
+          showError("Please enter a valid phone number.");
+          return;
+        }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          showError("Please enter a valid email address.");
+          return;
+        }
+
+        // Prepare submission payload
+        const payload = { name, phone, email, subject, message };
+
+        // Set Loading state on button
+        const originalBtnContent = btnSend.innerHTML;
+        btnSend.disabled = true;
+        btnSend.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+        try {
+          const response = await fetch(getApiUrl('/api/inquiries'), {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            throw new Error(`Server returned status ${response.status}`);
+          }
+
+          const result = await response.json();
+
+          // Render premium success feedback by replacing the card content
+          const card = contactForm.closest('.contact-form-card');
+          if (card) {
+            // Save original card contents to allow reset
+            const originalContents = card.innerHTML;
+
+            card.innerHTML = `
+              <div class="success-state">
+                <div class="success-icon">
+                  <i class="fas fa-check"></i>
+                </div>
+                <h3>Thank You!</h3>
+                <p>Your message has been sent successfully. We will get back to you shortly.</p>
+                <button class="btn-success-reset" id="btnSuccessReset">Send Another Message</button>
+              </div>
+            `;
+
+            document.getElementById('btnSuccessReset').addEventListener('click', function() {
+              window.location.reload();
+            });
+          }
+
+        } catch (error) {
+          console.error("Submission error:", error);
+          showError("Failed to send message. Please check your internet connection or try again later.");
+          // Re-enable button
+          btnSend.disabled = false;
+          btnSend.innerHTML = originalBtnContent;
+        }
+      });
+
+      function showError(msg) {
+        errorContainer.innerHTML = `<i class="fas fa-exclamation-circle"></i> <span>${msg}</span>`;
+        errorContainer.style.display = 'flex';
+        // Scroll to error container
+        errorContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
   </script>
 
 </body>
