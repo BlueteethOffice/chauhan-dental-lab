@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-max Crown | Chauhan Dental Laboratory</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../style.css?v=3">
+<style>
+  .product-details-container {
+    padding: 60px 0;
+  }
+  .product-detail-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  @media (max-width: 992px) {
+    .product-detail-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .about-product-card {
+    background: #fff;
+    border: 1px solid #e8f0fe;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(13, 45, 107, 0.02);
+  }
+  .about-product-card h2 {
+    font-size: 24px;
+    color: #0d2d6b;
+    margin-bottom: 20px;
+    font-weight: 800;
+  }
+  .about-product-card p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #4b5563;
+    margin-bottom: 25px;
+  }
+  .indications-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+  .indication-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #4b5563;
+    font-weight: 500;
+  }
+  .indication-item i {
+    color: #1a4fa0;
+  }
+  .features-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .sidebar-card {
+    background: #fff;
+    border: 1px solid #e8f0fe;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(13, 45, 107, 0.02);
+  }
+  .sidebar-card-blue {
+    background: linear-gradient(135deg, #0d2d6b, #1a4fa0);
+    color: #fff;
+    border: none;
+  }
+  .sidebar-card h3 {
+    font-size: 18px;
+    color: #0d2d6b;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+  .sidebar-card-blue h3 {
+    color: #fff;
+  }
+  .feature-checkmark-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .checkmark-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4b5563;
+  }
+  .sidebar-card-blue .checkmark-item {
+    color: #e0e7ff;
+  }
+  .benefits-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+  }
+  .benefits-table th, .benefits-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+  }
+  .benefits-table th {
+    background-color: #f8fafc;
+    color: #0d2d6b;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .benefits-table td {
+    font-size: 14px;
+    color: #4b5563;
+  }
+  .detail-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 992px) {
+    .detail-gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 576px) {
+    .detail-gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .gallery-card-item {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    border: 1px solid #e8f0fe;
+    transition: transform 0.3s ease;
+  }
+  .gallery-card-item:hover {
+    transform: translateY(-5px);
+  }
+  .gallery-card-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+  }
+  .gallery-card-label {
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0d2d6b;
+    text-align: center;
+    background: #f8fafc;
+    border-top: 1px solid #e8f0fe;
+  }
+  .why-list-detail {
+    list-style: none;
+    padding: 0;
+  }
+  .why-list-detail li {
+    margin-bottom: 12px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #4b5563;
+  }
+  .why-list-detail li i {
+    color: #10b981;
+  }
+</style>
+<script src="../menu-drawer.js" defer></script>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+  <div class="container top-bar-inner">
+    <div class="top-bar-left">
+      <i class="fas fa-check-circle"></i> 35+ Years of Excellence in Dental Laboratory Services
+    </div>
+    <div class="top-bar-right">
+      <span><i class="far fa-clock"></i> Mon - Sat 9:00 AM - 7:00 PM</span>
+      <span><i class="fas fa-phone"></i> <a href="tel:+919810350385" style="color: inherit; text-decoration: none;">+91-9810350385</a></span>
+      <span><i class="far fa-envelope"></i> <a href="mailto:support@chauhandentallaboratory.com" style="color: inherit; text-decoration: none;">support@chauhandentallaboratory.com</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo-area">
+      <div class="logo-icon"><i class="fas fa-tooth"></i></div>
+      <div class="logo-text">
+        <strong>CHAUHAN</strong>
+        <span>DENTAL LABORATORY</span>
+        <small>Quality. Precision. Trust.</small>
+      </div>
+    </a>
+    <nav class="nav-menu">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About Us</a>
+      <a href="../products.html" class="active">Our Products</a>
+      <a href="../gallery.html">Gallery</a>
+      <a href="../why-us.html">Why Us</a>
+      <a href="../contact.html">Contact Us</a>
+      <a href="../contact.html" class="mobile-git-link" style="display: none;"><i class="fas fa-phone" style="margin-right:5px;"></i> Get In Touch</a>
+    </nav>
+    <a href="../contact.html" class="btn btn-primary get-in-touch"><i class="fas fa-phone" style="margin-right:5px;"></i> Get In Touch</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="gallery-hero" style="min-height: 400px; background: linear-gradient(to right, rgba(9, 33, 71, 0.9) 40%, rgba(9, 33, 71, 0.3)), url('../images/rrrrr.png') no-repeat center center / cover;">
+  <div class="gallery-hero-content">
+    <div class="gallery-hero-eyebrow">
+      <i class="fas fa-tooth"></i> Premium All-Ceramic Restoration
+    </div>
+    <h1>E-max <span>Crown</span></h1>
+    <p>Premium lithium disilicate glass-ceramic restorations delivering natural translucency and superior aesthetics, perfect for cosmetic anterior cases.</p>
+  </div>
+</section>
+
+<!-- Product Details Body -->
+<div class="product-details-container">
+  <div class="container">
+    <div class="product-detail-grid">
+      
+      <!-- Left Column: About, Indications, Benefits -->
+      <div class="about-product-card">
+        <h2>About E-max Crown</h2>
+        <p>IPS e.max® is widely regarded as the ultimate material for cosmetic, all-ceramic dental restorations. Made of premium lithium disilicate glass-ceramic, these crowns feature a unique combination of realistic translucency, high flexural strength (400-500 MPa), and outstanding biocompatibility. They are designed to blend seamlessly with surrounding natural teeth by copying their exact shade gradients and light refraction properties.</p>
+        <p>E-max crowns are processed using either digital CAD/CAM milling or hot-pressed glass technology. Since they are 100% metal-free, they avoid dark margin lines and give anterior restorations an incredibly natural, high-end cosmetic finish.</p>
+        
+        <h3 style="color:#0d2d6b; font-size:18px; font-weight:700; margin-top:30px; margin-bottom:15px;">Indications</h3>
+        <div class="indications-list">
+          <div class="indication-item"><i class="fas fa-circle-check"></i> Anterior Single Crowns</div>
+          <div class="indication-item"><i class="fas fa-circle-check"></i> Inlays and Onlays</div>
+          <div class="indication-item"><i class="fas fa-circle-check"></i> Premium Veneers</div>
+          <div class="indication-item"><i class="fas fa-circle-check"></i> Anterior 3-Unit Bridges</div>
+        </div>
+
+        <h3 style="color:#0d2d6b; font-size:18px; font-weight:700; margin-top:30px; margin-bottom:15px;">Product Benefits</h3>
+        <table class="benefits-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Benefit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lithium Disilicate</td>
+              <td>High strength (400-500 MPa) and fracture resistance</td>
+            </tr>
+            <tr>
+              <td>Metal-Free Ceramic</td>
+              <td>Incredible translucency and natural aesthetics</td>
+            </tr>
+            <tr>
+              <td>Biocompatible Material</td>
+              <td>Zero risk of allergic reactions or gum irritation</td>
+            </tr>
+            <tr>
+              <td>Press/CAD Technology</td>
+              <td>Excellent marginal fit and conservative tooth preparation</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Right Column: Sidebar (Features, Why Choose) -->
+      <div class="features-sidebar">
+        <div class="sidebar-card">
+          <h3>Key Features</h3>
+          <div class="feature-checkmark-list">
+            <div class="checkmark-item">✅ Metal Free</div>
+            <div class="checkmark-item">✅ Lifelike Translucency</div>
+            <div class="checkmark-item">✅ High Strength</div>
+            <div class="checkmark-item">✅ Biocompatible</div>
+            <div class="checkmark-item">✅ Perfect for Anterior Teeth</div>
+            <div class="checkmark-item">✅ Minimal Preparation</div>
+          </div>
+        </div>
+
+        <div class="sidebar-card sidebar-card-blue">
+          <h3 style="color:#fff;">Why Choose Chauhan Lab</h3>
+          <ul class="why-list-detail">
+            <li><i class="fas fa-check"></i> 35+ Years of Lab Experience</li>
+            <li><i class="fas fa-check"></i> Original Ivoclar Vivadent Materials</li>
+            <li><i class="fas fa-check"></i> High-precision Custom Staining</li>
+            <li><i class="fas fa-check"></i> Rapid 24-48 Hours Turnaround</li>
+            <li><i class="fas fa-check"></i> Expert Technicians & Final QC</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Product Gallery Section -->
+    <h2 class="section-title-center gallery-title">Product Gallery</h2>
+    <div class="detail-gallery-grid">
+      <div class="gallery-card-item">
+        <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=500&auto=format&fit=crop" alt="Front View">
+        <div class="gallery-card-label">Front View</div>
+      </div>
+      <div class="gallery-card-item">
+        <img src="../products image/ChatGPT Image Jun 17, 2026, 04_07_03 PM.png" alt="Side View">
+        <div class="gallery-card-label">Side View</div>
+      </div>
+      <div class="gallery-card-item">
+        <img src="../products image/imageq.png" alt="Lab View">
+        <div class="gallery-card-label">Lab View</div>
+      </div>
+      <div class="gallery-card-item">
+        <img src="../Our Products/E-max Crown.png" alt="Final Restoration">
+        <div class="gallery-card-label">Final Restoration</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="home-cta">
+  <div class="container home-cta-inner">
+    <div class="home-cta-left">
+      <div class="home-cta-icon"><i class="fas fa-tooth"></i></div>
+      <div>
+        <h3>Need This Product?</h3>
+        <p>Partner with Chauhan Dental Laboratory to deliver top-tier, long-lasting smiles to your patients.</p>
+      </div>
+    </div>
+    <div class="home-cta-btns">
+      <a href="tel:+919810350385" class="btn btn-primary"><i class="fas fa-phone"></i> Call Now</a>
+      <a href="https://wa.me/919999578291" class="btn-success" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      <a href="../contact.html" class="btn btn-primary" style="background:#1e40af;"><i class="far fa-envelope"></i> Send Inquiry</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="new-footer">
+  <div class="container">
+    <div class="new-footer-grid">
+      <div class="nf-brand">
+        <div class="nf-logo">
+          <div class="nf-logo-icon"><i class="fas fa-tooth"></i></div>
+          <div class="nf-logo-text"><strong>CHAUHAN</strong><span>DENTAL LABORATORY</span></div>
+        </div>
+        <p>Delivering high quality dental restorations with advanced technology and skilled craftsmanship since 1988.</p>
+        <div class="nf-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="nf-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../products.html">Our Products</a></li>
+          <li><a href="../gallery.html">Gallery</a></li>
+          <li><a href="../why-us.html">Why Choose Us</a></li>
+          <li><a href="../contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="nf-col">
+        <h4>Our Products</h4>
+        <ul>
+          <li><a href="zirconia-crown.html">Crowns &amp; Bridges</a></li>
+          <li><a href="implant-crown.html">Implant Restorations</a></li>
+          <li><a href="complete-denture.html">Dentures</a></li>
+          <li><a href="orthodontics.html">Orthodontic Appliances</a></li>
+          <li><a href="custom-abutment.html">Custom Solutions</a></li>
+        </ul>
+      </div>
+      <div class="nf-col">
+        <h4>Contact Us</h4>
+        <ul class="nf-contact-list">
+          <li><i class="fas fa-map-marker-alt"></i> House No. 561/A, Chirag Dilli, New Delhi - 110017</li>
+          <li><i class="fas fa-phone"></i> <a href="tel:+919810350385" style="color: inherit; text-decoration: none;">+91-9810350385</a></li>
+          <li><i class="far fa-envelope"></i> <a href="mailto:support@chauhandentallaboratory.com" style="color: inherit; text-decoration: none;">support@chauhandentallaboratory.com</a></li>
+          <li><i class="far fa-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="new-footer-bottom">
+      <p>&copy; 2025 Chauhan Dental Laboratory. All Rights Reserved.</p>
+      <div><a href="../privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="../terms.html">Terms &amp; Conditions</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919999578291" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+  // Hamburger Menu Toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.querySelector('.nav-menu');
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navMenu.classList.toggle('active');
+      const icon = this.querySelector('i');
+      if (icon.classList.contains('fa-bars')) {
+        icon.classList.replace('fa-bars', 'fa-times');
+      } else {
+        icon.classList.replace('fa-times', 'fa-bars');
+      }
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.replace('fa-times', 'fa-bars');
+      }
+    });
+  }
+</script>
+</body>
+</html>

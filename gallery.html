@@ -1,0 +1,487 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Chauhan Dental Laboratory</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  /* Prevent horizontal scroll on gallery page */
+  @media (max-width: 768px) {
+    .gallery-hero::after,
+    .gallery-cta-bar::before,
+    .gallery-cta-bar::after {
+      display: none !important;
+    }
+  }
+</style>
+
+<script src="menu-drawer.js" defer></script>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+  <div class="container top-bar-inner">
+    <div class="top-bar-left">
+      <i class="fas fa-check-circle"></i> 35+ Years of Excellence in Dental Laboratory Services
+    </div>
+    <div class="top-bar-right">
+      <span><i class="far fa-clock"></i> Mon - Sat 9:00 AM - 7:00 PM</span>
+      <span><i class="fas fa-phone"></i> <a href="tel:+919810350385" style="color: inherit; text-decoration: none;">+91-9810350385</a></span>
+      <span><i class="far fa-envelope"></i> <a href="mailto:support@chauhandentallaboratory.com" style="color: inherit; text-decoration: none;">support@chauhandentallaboratory.com</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo-area">
+      <div class="logo-icon"><i class="fas fa-tooth"></i></div>
+      <div class="logo-text">
+        <strong>CHAUHAN</strong>
+        <span>DENTAL LABORATORY</span>
+        <small>Quality. Precision. Trust.</small>
+      </div>
+    </a>
+    <nav class="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Our Products</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="why-us.html">Why Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="contact.html" class="mobile-git-link" style="display: none;"><i class="fas fa-phone" style="margin-right:5px;"></i> Get In Touch</a>
+    </nav>
+    <a href="contact.html" class="btn btn-primary get-in-touch"><i class="fas fa-phone" style="margin-right:5px;"></i> Get In Touch</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Gallery Hero -->
+<section class="gallery-hero">
+  <!-- Floating particles -->
+  <div class="hero-particles">
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="gallery-hero-content">
+    <div class="gallery-hero-eyebrow">
+      <i class="fas fa-images"></i> Visual Showcase
+    </div>
+    <h1>Our <span>Gallery</span></h1>
+    <p>A glimpse into our world-class laboratory, cutting-edge technology, expert craftsmanship, and the highest quality dental restorations.</p>
+
+    <div class="gallery-hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">35+</span>
+        <span class="hero-stat-label">Years Experience</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">10K+</span>
+        <span class="hero-stat-label">Cases Completed</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">500+</span>
+        <span class="hero-stat-label">Happy Dentists</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <i class="fas fa-chevron-down"></i>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- Filter Tabs -->
+<div class="gallery-filter">
+  <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+  <button class="filter-btn" onclick="filterGallery('laboratory', this)">Laboratory</button>
+  <button class="filter-btn" onclick="filterGallery('team', this)">Team</button>
+  <button class="filter-btn" onclick="filterGallery('equipment', this)">Equipment</button>
+  <button class="filter-btn" onclick="filterGallery('products', this)">Our Products</button>
+  <button class="filter-btn" onclick="filterGallery('process', this)">Our Process</button>
+</div>
+
+<!-- Gallery Body -->
+<div class="gallery-body">
+
+  <!-- Laboratory Section -->
+  <div class="gallery-section" data-section="laboratory">
+    <div class="gallery-section-title">
+      <div class="section-title-icon"><i class="fas fa-flask"></i></div>
+      Laboratory
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="about images/hero section.png" alt="Laboratory">
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="about images/lab equipments.png" alt="Lab Equipment">
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="about images/lab technacions.png" alt="Lab Technicians">
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="about images/image.png" alt="Laboratory">
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Equipment & Technology Section -->
+  <div class="gallery-section" data-section="equipment">
+    <div class="gallery-section-title">
+      <div class="section-title-icon"><i class="fas fa-cogs"></i></div>
+      Equipment &amp; Technology
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="equpmentss/1111.png" alt="Equipment 1">
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="equpmentss/222.png" alt="Equipment 2">
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="equpmentss/333.png" alt="Equipment 3">
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="equpmentss/444.png" alt="Equipment 4">
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Our Products Section -->
+  <div class="gallery-section" data-section="products">
+    <div class="gallery-section-title">
+      <div class="section-title-icon"><i class="fas fa-tooth"></i></div>
+      Our Products
+    </div>
+    <div class="gallery-grid gallery-grid-products">
+      <div class="gallery-item-wrap">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Our Products/Zirconia Crown.png" alt="Zirconia Crowns">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item-caption">Zirconia Crowns</div>
+      </div>
+      <div class="gallery-item-wrap">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Our Products/FM crown.png" alt="PFM Crowns">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item-caption">PFM Crowns</div>
+      </div>
+      <div class="gallery-item-wrap">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Our Products/E-max Crown.png" alt="E-Max Crowns">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item-caption">E-Max Crowns</div>
+      </div>
+      <div class="gallery-item-wrap">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Our Products/Implant Crown.png" alt="Implant Crowns">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item-caption">Implant Crowns</div>
+      </div>
+      <div class="gallery-item-wrap">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Our Products/comlete denture.png" alt="Complete Dentures">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item-caption">Complete Dentures</div>
+      </div>
+      <div class="gallery-item-wrap">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Our Products/partial denture.png" alt="Partial Dentures">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item-caption">Partial Dentures</div>
+      </div>
+      <div class="gallery-item-wrap">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Our Products/metallic partial denture.png" alt="Cast Partial Dentures">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item-caption">Cast Partial Dentures</div>
+      </div>
+      <div class="gallery-item-wrap">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Our Products/cutom abutment.png" alt="Custom Abutments">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item-caption">Custom Abutments</div>
+      </div>
+      <div class="gallery-item-wrap">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Our%20Products/Night%20Guards.png" alt="Night Guards">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item-caption">Night Guards</div>
+      </div>
+      <div class="gallery-item-wrap">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Our%20Products/Dental%20Bridges.png" alt="Dental Bridges">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item-caption">Dental Bridges</div>
+      </div>
+      <div class="gallery-item-wrap">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Our%20Products/Orthodontic%20Appliances.png" alt="Orthodontic Appliances">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item-caption">Orthodontic Appliances</div>
+      </div>
+      <div class="gallery-item-wrap">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="Our%20Products/Removable%20Appliances.png" alt="Removable Appliances">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item-caption">Removable Appliances</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Our Team Section -->
+  <div class="gallery-section" data-section="team">
+    <div class="gallery-section-title">
+      <div class="section-title-icon"><i class="fas fa-users"></i></div>
+      Our Team
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="tttt/1.png" alt="Team Member 1">
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="tttt/2.png" alt="Team Member 2">
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="tttt/3.png" alt="Team Member 3">
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="tttt/4.png" alt="Team Member 4">
+        <div class="overlay"><i class="fas fa-search-plus"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Our Process Section -->
+  <div class="gallery-section" data-section="process">
+    <div class="gallery-section-title">
+      <div class="section-title-icon"><i class="fas fa-tasks"></i></div>
+      Our Process
+    </div>
+    <div class="process-gallery-grid">
+      <div class="process-gallery-step">
+        <div class="process-step-num">1</div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="processs/A1.png" alt="Case Received">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="process-step-label">Case Received</div>
+      </div>
+      <div class="process-gallery-step">
+        <div class="process-step-num">2</div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="processs/A2.png" alt="Digital Design">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="process-step-label">Digital Design</div>
+      </div>
+      <div class="process-gallery-step">
+        <div class="process-step-num">3</div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="processs/A3.png" alt="Fabrication">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="process-step-label">Fabrication</div>
+      </div>
+      <div class="process-gallery-step">
+        <div class="process-step-num">4</div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="processs/A4.png" alt="Quality Check">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="process-step-label">Quality Check</div>
+      </div>
+      <div class="process-gallery-step">
+        <div class="process-step-num">5</div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="processs/A5.png" alt="Delivery">
+          <div class="overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="process-step-label">Delivery</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end gallery-body -->
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- CTA Banner -->
+<div class="gallery-cta-bar">
+  <div class="cta-left">
+    <div class="cta-icon"><i class="fas fa-tooth"></i></div>
+    <div>
+      <h3>Looking for a Reliable Dental Laboratory Partner?</h3>
+      <p>We deliver precision, quality, and trust with every case.</p>
+    </div>
+  </div>
+  <div class="cta-btns">
+    <a href="tel:+919810350385" class="btn btn-primary" style="display:flex;align-items:center;gap:8px;"><i class="fas fa-phone"></i> Call Us Now</a>
+    <a href="https://wa.me/919999578291" target="_blank" style="display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:12px 24px;border-radius:6px;font-weight:600;font-size:14px;text-decoration:none;"><i class="fab fa-whatsapp" style="font-size:18px;"></i> WhatsApp Us</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="new-footer">
+  <div class="container">
+    <div class="new-footer-grid">
+      <div class="nf-brand">
+        <div class="nf-logo">
+          <div class="nf-logo-icon"><i class="fas fa-tooth"></i></div>
+          <div class="nf-logo-text">
+            <strong>CHAUHAN</strong>
+            <span>DENTAL LABORATORY</span>
+          </div>
+        </div>
+        <p>Delivering high quality dental restorations with advanced technology and skilled craftsmanship since 1988.</p>
+        <div class="nf-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="nf-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Our Products</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="why-us.html">Why Choose Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="nf-col">
+        <h4>Our Products</h4>
+        <ul>
+          <li><a href="crown-bridge.html">Crowns &amp; Bridges</a></li>
+          <li><a href="implants.html">Implant Restorations</a></li>
+          <li><a href="removables.html">Dentures</a></li>
+          <li><a href="orthodontics.html">Orthodontic Appliances</a></li>
+          <li><a href="custom-solutions.html">Custom Solutions</a></li>
+        </ul>
+      </div>
+      <div class="nf-col">
+        <h4>Contact Us</h4>
+        <ul class="nf-contact-list">
+          <li><i class="fas fa-map-marker-alt"></i> House No. 561/A, Chirag Dilli, New Delhi - 110017</li>
+          <li><i class="fas fa-phone"></i> <a href="tel:+919810350385" style="color: inherit; text-decoration: none;">+91-9810350385</a></li>
+          <li><i class="far fa-envelope"></i> <a href="mailto:support@chauhandentallaboratory.com" style="color: inherit; text-decoration: none;">support@chauhandentallaboratory.com</a></li>
+          <li><i class="far fa-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="new-footer-bottom">
+      <p>&copy; 2025 Chauhan Dental Laboratory. All Rights Reserved.</p>
+      <div><a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html">Terms &amp; Conditions</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/919999578291" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  // Filter Gallery
+  function filterGallery(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.gallery-section').forEach(section => {
+      if (category === 'all' || section.dataset.section === category) {
+        section.style.display = 'block';
+      } else {
+        section.style.display = 'none';
+      }
+    });
+  }
+
+  // Lightbox
+  function openLightbox(el) {
+    const img = el.querySelector('img');
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightbox').classList.add('active');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Hamburger Menu Toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.querySelector('.nav-menu');
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navMenu.classList.toggle('active');
+      const icon = this.querySelector('i');
+      if (icon.classList.contains('fa-bars')) {
+        icon.classList.replace('fa-bars', 'fa-times');
+      } else {
+        icon.classList.replace('fa-times', 'fa-bars');
+      }
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active'); document.body.classList.remove('menu-open');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.replace('fa-times', 'fa-bars');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

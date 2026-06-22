@@ -1,0 +1,11 @@
+{
+  "name": "chauhan-dental-lab",
+  "version": "1.0.0",
+  "description": "Static website for Chauhan Dental Laboratory",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -c-1 -p 4000"
+  },
+  "author": "Chitranjan Kumar",
+  "license": "MIT"
+}

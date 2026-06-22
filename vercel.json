@@ -1,0 +1,115 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "style.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "images/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "products image/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "about images/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Our Products/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Product Categories/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Expert Team/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "equpmentss/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "processs/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "tttt/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.png",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/server.js"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/images/$1"
+    },
+    {
+      "src": "/products image/(.*)",
+      "dest": "/products image/$1"
+    },
+    {
+      "src": "/about images/(.*)",
+      "dest": "/about images/$1"
+    },
+    {
+      "src": "/Our Products/(.*)",
+      "dest": "/Our Products/$1"
+    },
+    {
+      "src": "/Product Categories/(.*)",
+      "dest": "/Product Categories/$1"
+    },
+    {
+      "src": "/Expert Team/(.*)",
+      "dest": "/Expert Team/$1"
+    },
+    {
+      "src": "/equpmentss/(.*)",
+      "dest": "/equpmentss/$1"
+    },
+    {
+      "src": "/processs/(.*)",
+      "dest": "/processs/$1"
+    },
+    {
+      "src": "/tttt/(.*)",
+      "dest": "/tttt/$1"
+    },
+    {
+      "src": "/(.*\\.png)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*\\.css)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*\\.html)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
+    }
+  ]
+}
