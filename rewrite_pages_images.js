@@ -88,7 +88,7 @@ const shellBottom = `
     </div>
     <div class="home-cta-btns">
       <a href="tel:+919810350385" class="btn btn-primary"><i class="fas fa-phone"></i> Call Now</a>
-      <a href="https://wa.me/919999578291" class="btn-success" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      <a href="https://wa.me/919810350385" class="btn-success" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
     </div>
   </div>
 </div>
@@ -148,7 +148,7 @@ const shellBottom = `
   </div>
 </footer>
 
-<a href="https://wa.me/919999578291" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/919810350385" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
   // Hamburger Menu Toggle

@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const ctasHtml = `
     <div class="drawer-ctas">
       <a href="tel:+919810350385" class="drawer-btn drawer-btn-call"><i class="fas fa-phone"></i> Call Now</a>
-      <a href="https://wa.me/919999578291" class="drawer-btn drawer-btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      <a href="https://wa.me/919810350385" class="drawer-btn drawer-btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
     </div>
   `;
 
