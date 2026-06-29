@@ -10,6 +10,10 @@
       "use": "@vercel/static"
     },
     {
+      "src": "products/*.html",
+      "use": "@vercel/static"
+    },
+    {
       "src": "style.css",
       "use": "@vercel/static"
     },
@@ -56,6 +60,10 @@
     {
       "src": "*.png",
       "use": "@vercel/static"
+    },
+    {
+      "src": "*.webp",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -98,6 +106,10 @@
     {
       "src": "/tttt/(.*)",
       "dest": "/tttt/$1"
+    },
+    {
+      "src": "/(.*\\.webp)",
+      "dest": "/$1"
     },
     {
       "src": "/(.*\\.png)",

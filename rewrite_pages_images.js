@@ -208,6 +208,7 @@ function buildRow(imagePath, title, desc, features, reverse) {
 // 1. Crowns & Bridges
 let crownHTML = shellTop
   .replace('__TITLE__', 'Crowns & Bridges')
+  .replace("background: url('images/image copy 6.png') no-repeat center center / cover;", "background: linear-gradient(to right, rgba(9, 33, 71, 0.9) 40%, rgba(9, 33, 71, 0.3)), url('images/crowns-bridges.webp') no-repeat center 30% / cover;")
   .replace('__ICON__', 'fas fa-tooth')
   .replace('__EYEBROW__', 'Crown & Bridge Restorations')
   .replace('__HERO_TITLE__', 'Crowns & <span>Bridges</span>')
@@ -224,6 +225,7 @@ fs.writeFileSync('crown-bridge.html', crownHTML, 'utf8');
 // 2. Implants
 let implantsHTML = shellTop
   .replace('__TITLE__', 'Dental Implants')
+  .replace("background: url('images/image copy 6.png') no-repeat center center / cover;", "background: linear-gradient(to right, rgba(9, 33, 71, 0.9) 40%, rgba(9, 33, 71, 0.3)), url('images/dental-implants.webp') no-repeat center 30% / cover;")
   .replace('__ICON__', 'fas fa-tooth')
   .replace('__EYEBROW__', 'Implant Restorations')
   .replace('__HERO_TITLE__', 'Dental <span>Implants</span>')
@@ -240,6 +242,7 @@ fs.writeFileSync('implants.html', implantsHTML, 'utf8');
 // 3. Removables
 let removablesHTML = shellTop
   .replace('__TITLE__', 'Removables')
+  .replace("background: url('images/image copy 6.png') no-repeat center center / cover;", "background: linear-gradient(to right, rgba(9, 33, 71, 0.9) 40%, rgba(9, 33, 71, 0.3)), url('images/removable-prosthetics.webp') no-repeat center 30% / cover;")
   .replace('__ICON__', 'fas fa-teeth-open')
   .replace('__EYEBROW__', 'Removables')
   .replace('__HERO_TITLE__', 'Removable <span>Prosthetics</span>')
@@ -257,6 +260,7 @@ fs.writeFileSync('removables.html', removablesHTML, 'utf8');
 // 4. Orthodontics
 let orthoHTML = shellTop
   .replace('__TITLE__', 'Orthodontics')
+  .replace("background: url('images/image copy 6.png') no-repeat center center / cover;", "background: linear-gradient(to right, rgba(9, 33, 71, 0.9) 40%, rgba(9, 33, 71, 0.3)), url('images/orthodontic.webp') no-repeat center 30% / cover;")
   .replace('__ICON__', 'fas fa-smile')
   .replace('__EYEBROW__', 'Orthodontic Appliances')
   .replace('__HERO_TITLE__', 'Orthodontic <span>Appliances</span>')
@@ -272,6 +276,7 @@ fs.writeFileSync('orthodontics.html', orthoHTML, 'utf8');
 // 5. Custom Solutions
 let customHTML = shellTop
   .replace('__TITLE__', 'Custom Solutions')
+  .replace("background: url('images/image copy 6.png') no-repeat center center / cover;", "background: linear-gradient(to right, rgba(9, 33, 71, 0.9) 40%, rgba(9, 33, 71, 0.3)), url('images/custom-solutions.webp') no-repeat center 30% / cover;")
   .replace('__ICON__', 'fas fa-cogs')
   .replace('__EYEBROW__', 'Custom Dental Solutions')
   .replace('__HERO_TITLE__', 'Custom <span>Solutions</span>')

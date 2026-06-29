@@ -532,7 +532,7 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
 
 /* About Page Specific CSS */
 .about-hero {
-  background: linear-gradient(to right, rgba(9, 33, 71, 0.95) 30%, rgba(9, 33, 71, 0.4) 60%, rgba(9, 33, 71, 0) 100%), url('about%20images/about-hero.png') no-repeat center center / cover;
+  background: linear-gradient(to right, rgba(9, 33, 71, 0.95) 30%, rgba(9, 33, 71, 0.4) 60%, rgba(9, 33, 71, 0) 100%), url('about%20images/about-hero.png') no-repeat center 30% / cover;
   position: relative;
   overflow: hidden;
   min-height: 560px;
@@ -569,7 +569,7 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
 /* Home Page Hero Override - removed conflicting overrides */
 
 /* Products Page Specific CSS */
-.products-hero { position: relative; min-height: 400px; display: flex; align-items: center; color: white; overflow: hidden; background: url('products-hero.png') no-repeat right center / cover; }
+.products-hero { position: relative; min-height: 400px; display: flex; align-items: center; color: white; overflow: hidden; background: url('images/products-hero.webp') no-repeat right center / cover; }
 .products-hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; z-index: 1; }
 .products-hero .container, .products-hero .products-hero-content { position: relative; z-index: 2; }
 .products-hero .container { display: flex; justify-content: flex-start; align-items: center; }
@@ -760,6 +760,9 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
 .mobile-only {
   display: none;
 }
+.mobile-only-content {
+  display: none !important;
+}
 .hero-separator {
   width: 80px;
   height: 4px;
@@ -779,24 +782,64 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
   position: absolute;
   bottom: 0; left: 50%;
   transform: translate(-50%, 50%);
-  width: 90%; max-width: 960px;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 20px 60px rgba(9,33,71,0.18);
-  display: flex; justify-content: space-around; gap: 10px; flex-wrap: wrap;
-  padding: 24px 36px;
+  width: 92%; max-width: 1080px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 22px;
+  box-shadow: 0 10px 40px rgba(9, 33, 71, 0.06), 0 30px 70px rgba(9, 33, 71, 0.12);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 30px 20px;
   z-index: 10;
 }
-.hero-stat { display:flex; align-items:center; gap:14px; }
-.hero-stat-icon {
-  width: 48px; height: 48px;
-  background: linear-gradient(135deg,#e8f0fe,#dce9ff);
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  color: #1a4fa0; font-size: 20px;
+.hero-stat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.hero-stat-text h4 { font-size:16px; font-weight:800; color:#111; margin:0; }
-.hero-stat-text p { font-size:12px !important; color:#888 !important; margin:0 !important; }
+.hero-stat:not(:last-child) {
+  border-right: 1px solid rgba(9, 33, 71, 0.1);
+}
+.hero-stat:hover {
+  transform: translateY(-5px);
+}
+.hero-stat-icon {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg,#e8f0fe,#dce9ff);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  color: #1a4fa0; font-size: 22px;
+  box-shadow: 0 4px 10px rgba(26, 79, 160, 0.08);
+  transition: all 0.3s ease;
+}
+.hero-stat:hover .hero-stat-icon {
+  background: linear-gradient(135deg, #1a4fa0, #0d2d6b);
+  color: #fff;
+  transform: scale(1.08) rotate(5deg);
+  box-shadow: 0 6px 15px rgba(26, 79, 160, 0.25);
+}
+.hero-stat-text h4 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0d2d6b;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+.hero-stat:hover .hero-stat-text h4 {
+  color: #1a4fa0;
+}
+.hero-stat-text p {
+  font-size: 13px !important;
+  color: #555 !important;
+  margin: 4px 0 0 0 !important;
+  font-weight: 500;
+  line-height: 1.2;
+}
 
 /* ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ Features Bar ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ */
 .features-bar { background:#fff; padding:60px 0 50px; border-bottom:1px solid #eee; margin-top:70px; }
@@ -974,7 +1017,7 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
     align-items: center;
     color: white;
     overflow: hidden;
-    background: url('gallery.png') no-repeat center center / cover;
+    background: url('images/gallery.webp') no-repeat center 30% / cover;
     background-attachment: scroll;
     margin-top: 0;
   }
@@ -1457,7 +1500,7 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
   min-height: 440px;
   display: flex; align-items: center;
   color: white; overflow: hidden;
-  background: url('products-hero.png') no-repeat center center / cover;
+  background: url('images/products-hero.webp') no-repeat center 30% / cover;
 }
 .products-hero::before {
   content: '';
@@ -1636,9 +1679,9 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
 
 /* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ About Hero - Premium ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 .about-hero {
-  background-image: url('about.png') !important;
+  background-image: url('images/about.webp') !important;
   background-size: cover !important;
-  background-position: center center !important;
+  background-position: center 30% !important;
   background-repeat: no-repeat !important;
   min-height: 520px !important;
   position: relative !important;
@@ -1743,6 +1786,14 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
   border-radius: 2px; margin: 14px auto 0;
 }
 
+/* ── Team Grid Container ── */
+.about-team-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
 /* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ Team Cards ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 .team-card {
   background: #fff; border-radius: 18px; overflow: hidden;
@@ -1765,10 +1816,10 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
 ÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚ÂÃƒÂ¢Ã¢â‚¬Â¢Ã‚Â */
 .contact-hero {
   position: relative;
-  min-height: 440px;
+  min-height: 520px;
   display: flex; align-items: center;
   color: white; overflow: hidden;
-  background: url('contact.png') no-repeat center center / cover;
+  background: url('images/contact.webp') no-repeat center 35% / cover;
 }
 .contact-hero::before {
   content: '';
@@ -1786,7 +1837,7 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
 @keyframes shimmerBar { 0%{background-position:0%} 100%{background-position:300%} }
 
 .contact-hero .container { position:relative; z-index:2; }
-.contact-hero-content { max-width:580px; animation: heroFadeUp 0.9s ease both; }
+.contact-hero-content { max-width:580px; margin-left: -90px; animation: heroFadeUp 0.9s ease both; }
 @keyframes heroFadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
 
 .contact-eyebrow {
@@ -2059,6 +2110,7 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
   }
   .contact-hero-content {
     max-width: 100% !important;
+    margin-left: 0 !important;
     animation: none !important;
     text-align: center !important;
   }
@@ -2252,7 +2304,7 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
   align-items: center;
   color: white;
   overflow: hidden;
-  background: url('whyus.png') no-repeat center center / cover;
+  background: url('images/whyus.webp') no-repeat center 30% / cover;
 }
 .why-hero::before {
   content: '';
@@ -3504,7 +3556,7 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    background-position: center center !important;
+    background-position: center 30% !important;
     position: relative !important;
   }
   /* Add strong dark overlay for readability on mobile */
@@ -4278,6 +4330,14 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
   }
 }
 
+/* Hide custom mobile drawer and backdrop on desktop screens */
+@media (min-width: 769px) {
+  .mobile-drawer,
+  .drawer-backdrop {
+    display: none !important;
+  }
+}
+
 /* ===== CUSTOM PROFESSIONAL MOBILE DRAWER ===== */
 @media (max-width: 768px) {
   /* Hide the old nav-menu completely on mobile */
@@ -4588,6 +4648,16 @@ footer { background: var(--dark-blue); color: white; padding: 60px 0 20px; margi
   /* Body Lock */
   body.drawer-open {
     overflow: hidden !important;
+    height: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: inline !important;
+  }
+  .mobile-only-content {
+    display: block !important;
   }
 }
 

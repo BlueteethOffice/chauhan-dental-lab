@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
   const navMenu = document.querySelector('.nav-menu');
-  const menuToggle = document.getElementById('menuToggle');
+  let menuToggle = document.getElementById('menuToggle');
   if (!navMenu || !menuToggle) return;
+
+  // Clone menuToggle to strip any duplicate/conflicting event listeners
+  const clonedMenuToggle = menuToggle.cloneNode(true);
+  menuToggle.parentNode.replaceChild(clonedMenuToggle, menuToggle);
+  menuToggle = clonedMenuToggle;
 
   // Extract links from the existing desktop menu
   const links = Array.from(navMenu.querySelectorAll('a')).filter(a => !a.classList.contains('mobile-git-link'));
@@ -101,28 +106,14 @@ document.addEventListener('DOMContentLoaded', function() {
   let scrollPosition = 0;
 
   function openDrawer() {
-    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     drawer.classList.add('active');
     backdrop.classList.add('active');
-    
-    // Set position fixed to lock body scroll on all mobile browsers (iOS/Android)
-    document.body.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollPosition}px`;
-    document.body.style.width = '100%';
     document.body.classList.add('drawer-open');
   }
 
   function closeDrawer() {
     drawer.classList.remove('active');
     backdrop.classList.remove('active');
-    
-    // Restore original scroll position and layout
-    document.body.style.overflow = '';
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.width = '';
-    window.scrollTo(0, scrollPosition);
     document.body.classList.remove('drawer-open');
   }
 

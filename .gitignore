@@ -3,3 +3,5 @@ backend/.env
 backend/serviceAccountKey.json
 .env
 *.log
+
+original_large_banners_backup/
